@@ -41,11 +41,3 @@ tags:
 - `assets/images/blog-cover.jpg`：首页、START 和 Archive 的山景头图。
 
 **Settings → Pages** 使用 **Deploy from a branch → main → / (root)**。不需要在本地安装 Ruby、Node.js 或运行构建命令。
-
-## 主题来源
-
-主题文件固定采用 Hux Blog 提交 `665e552dcaebbcc93a589c3d24686b241a337405`。文章栏宽和页脚对齐参考 [Candycat Blog](https://candycat1992.github.io/)。
-
-本站调整了模板中的品牌、社交链接、SEO/feed 接入、文章媒体和标签配置，并只接入当前使用的主题功能。原版 Hux CSS、主题脚本和第三方依赖保留来源；许可证位于 `LICENSES/`。Hux 主题许可证不改变文章及第三方图片的权属。
-
-神秘海域 4 文章头图来自 Yibing Jiang / Naughty Dog 的 [SIGGRAPH 2016 演讲](https://advances.realtimerendering.com/s2016/) 首页原图。
