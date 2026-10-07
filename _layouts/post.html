@@ -2,21 +2,17 @@
 layout: default
 ---
 <article class="post-page">
-  <header class="post-header reading-shell">
-    <a class="back-link" href="{{ '/' | relative_url }}#articles"><span aria-hidden="true">←</span> 全部文章</a>
-    <div class="post-meta">
-      <span class="eyebrow">JOURNAL</span>
-      <span class="meta-divider" aria-hidden="true"></span>
-      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y 年 %m 月 %d 日' }}</time>
+  <header class="cover post-cover">
+    <div class="cover-inner reading-shell">
+      <a class="back-link" href="{{ '/' | relative_url }}#articles"><span aria-hidden="true">←</span> 全部文章</a>
+      <h1>{{ page.title | escape }}</h1>
+      <p class="post-byline">{{ page.author | default: site.author | escape }} · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y 年 %m 月 %d 日' }}</time></p>
     </div>
-    <h1>{{ page.title | escape }}</h1>
-    <p class="post-author"><span class="author-mark" aria-hidden="true">D.</span>{{ page.author | default: site.author | escape }}</p>
   </header>
   <div class="post-content reading-shell">
     {{ content }}
   </div>
   <footer class="post-end reading-shell">
-    <span class="end-mark" aria-hidden="true">D.</span>
-    <a class="text-link" href="{{ '/' | relative_url }}#articles">返回文章列表 <span aria-hidden="true">↗</span></a>
+    <a class="back-link" href="{{ '/' | relative_url }}#articles"><span aria-hidden="true">←</span> 返回文章列表</a>
   </footer>
 </article>

@@ -31,7 +31,16 @@ date: 2026-10-05 00:00:00 +0800
 - `index.md`：首页欢迎文字；文章列表由首页布局自动生成。
 - `_config.yml`：博客标题、介绍、GitHub 用户名、语言和时区。
 - `_layouts/`：公共页面、首页和文章页布局。
-- `assets/css/site.css`：配色、排版、代码高亮和手机布局。
+- `assets/css/site.css`：封面、导航、双栏文章列表、正文排版和手机布局。
+- `assets/images/blog-cover.jpg`：首页和文章页共用的封面图；替换图片即可更新封面。
 - `_posts/2026-10-05-getting-started.md`：入门文章，可以编辑或删除。
 
 本仓库通过 GitHub Pages 自带的 Jekyll 环境发布，不需要在本地安装 Ruby 或 Node.js。
+
+## 视觉设计
+
+页面参考 Candycat Blog（<https://candycat1992.github.io/>）的大幅封面、白色导航、文章列表和个人侧栏布局，使用独立编写的 Jekyll 模板与 CSS 实现。侧栏头像直接使用 `_config.yml` 中 GitHub 用户名对应的公开头像。
+
+封面由内置 imagegen 工具生成。提示词：
+
+> Use case: photorealistic-natural. Asset type: full-width personal blog header photograph. Create an original panoramic editorial landscape photograph for a professional Chinese personal blog. Layered forested mountains at blue hour, a calm lake low in the frame, soft mist between ridgelines, restrained charcoal and slate-blue tones, a faint warm glow near the horizon. Natural photographic detail, peaceful and understated. Ultra-wide horizontal composition, approximately 3:1. Keep the central upper-middle area dark and visually quiet so large white website title text can be overlaid in HTML; edge-to-edge landscape without borders. No people, buildings, logos, symbols, text, UI or watermark.
