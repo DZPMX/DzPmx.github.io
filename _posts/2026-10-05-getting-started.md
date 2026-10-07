@@ -4,7 +4,7 @@ title: "博客使用指南：发布第一篇文章"
 date: 2026-10-05 00:00:00 +0800
 ---
 
-这篇入门文章介绍如何更新这个博客。博客使用 GitHub Pages、Jekyll 和 Minima 主题，文章以 Markdown 文件保存。
+这篇入门文章介绍如何更新这个博客。博客使用 GitHub Pages、Jekyll 和自定义页面样式，文章以 Markdown 文件保存。
 
 ## 发布新文章
 
@@ -35,4 +35,4 @@ date: 2026-10-05 00:00:00 +0800
 ## 参考
 
 - [GitHub Pages 内容发布说明](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll)
-- [Minima 主题](https://github.com/jekyll/minima)
+- [Jekyll 文档](https://jekyllrb.com/docs/)

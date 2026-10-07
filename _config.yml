@@ -3,16 +3,13 @@ description: "欢迎来到 DzPmx 的个人博客。"
 author: DzPmx
 url: "https://dzpmx.github.io"
 baseurl: ""
-theme: minima
 lang: zh-CN
 timezone: Asia/Shanghai
 github_username: DzPmx
 
 plugins:
   - jekyll-feed
-
-minima:
-  date_format: "%Y-%m-%d"
+  - jekyll-seo-tag
 
 exclude:
   - README.md

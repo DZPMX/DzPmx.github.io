@@ -1,0 +1,57 @@
+---
+layout: default
+---
+<div class="shell">
+  <section class="hero" aria-labelledby="home-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="accent-line" aria-hidden="true"></span> PERSONAL JOURNAL</p>
+      <h1 id="home-title">{{ site.author | escape }}<span>的博客<span class="title-period">.</span></span></h1>
+      <div class="hero-intro">{{ content }}</div>
+      <a class="text-link" href="#articles">浏览文章 <span aria-hidden="true">↘</span></a>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 440 340" xmlns="http://www.w3.org/2000/svg" focusable="false">
+        <defs>
+          <pattern id="journal-grid" width="28" height="28" patternUnits="userSpaceOnUse">
+            <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#deded8" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect x="40" y="16" width="360" height="308" fill="url(#journal-grid)"/>
+        <circle cx="220" cy="170" r="124" fill="#f7f6f2" stroke="#c7c9c5" stroke-width="1"/>
+        <circle cx="220" cy="170" r="99" fill="none" stroke="#c7c9c5" stroke-width="1"/>
+        <path d="M40 170H400M220 16V324" stroke="#c7c9c5" stroke-width="1"/>
+        <text x="220" y="216" text-anchor="middle" fill="#242a30" font-family="Georgia, serif" font-size="152" font-style="italic" letter-spacing="-12">Dz.</text>
+        <rect x="334" y="70" width="20" height="20" fill="#2854ce"/>
+        <circle cx="102" cy="226" r="7" fill="#2854ce"/>
+        <path d="M36 16H52M44 8V24M388 324H404M396 316V332" stroke="#7c827e" stroke-width="1"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="article-section" id="articles" aria-labelledby="articles-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">THE JOURNAL</p>
+        <h2 id="articles-title">{{ page.list_title | escape }}</h2>
+      </div>
+      <span class="article-count">{{ site.posts.size }} 篇文章</span>
+    </div>
+    <ol class="post-list">
+      {% for post in site.posts %}
+      <li>
+        <article class="post-card">
+          <div class="post-card-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+            <span class="post-number" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+          </div>
+          <div class="post-card-body">
+            <h3><a class="post-card-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}<span class="card-arrow" aria-hidden="true">↗</span></a></h3>
+            <p class="post-excerpt">{{ post.excerpt | strip_html | normalize_whitespace | truncate: 150 | escape }}</p>
+            <span class="read-label" aria-hidden="true">阅读全文 <span>→</span></span>
+          </div>
+        </article>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+</div>
