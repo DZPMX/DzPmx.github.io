@@ -42,6 +42,15 @@ tags:
 - Typora 中保存文件后，在 GitHub Desktop 查看文章和图片改动，填写提交说明，点击 **Commit to main**，再点击 **Push origin**。只有推送后才会触发博客发布。
 - Typora 用于正文编辑，头图、CATALOG 和 Hux 页面布局以实际博客页面为准；不需要导出 HTML 或插入 `[TOC]`。
 
+## 数学公式
+
+含公式的文章在开头配置中加上 `math: true`，正文沿用 Typora 的写法：
+
+- 内联公式：`$P=O+tD$`。
+- 独立公式：用单独两行 `$$` 包住公式。
+
+推送后，GitHub Actions 使用 Pandoc 解析这些文章，在 Markdown 转换前保护公式中的竖线、下标和反斜杠；网页通过固定版本的 MathJax 显示公式。源 Markdown 不会被改写回仓库，普通文章继续使用原来的解析方式。无需在本地安装 Pandoc 或运行构建。
+
 ## 站点维护
 
 - `_config.yml`：博客名称、作者、默认头图、语言和时区。
@@ -52,4 +61,4 @@ tags:
 - `js/`：Hux 导航、目录和标签归档依赖。
 - `assets/images/blog-cover.jpg`：首页、START 和 Archive 的山景头图。
 
-**Settings → Pages** 使用 **Deploy from a branch → main → / (root)**。不需要在本地安装 Ruby、Node.js 或运行构建命令。
+**Settings → Pages → Source** 使用 **GitHub Actions**。发布流程位于 `.github/workflows/pages.yml`，推送到 `main` 后自动处理公式文章、生成并部署博客。日常仍使用 Typora 保存、GitHub Desktop 提交和推送。

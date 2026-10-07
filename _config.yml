@@ -13,6 +13,7 @@ plugins:
 
 exclude:
   - README.md
+  - scripts
 
 # Hux Blog article headers and featured tags
 header-img: "assets/images/blog-cover.jpg"

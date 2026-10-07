@@ -7,4 +7,10 @@
   <link rel="stylesheet" href="{{ '/css/bootstrap.min.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/css/hux-blog.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/css/dzpmx.css' | relative_url }}">
+  {% assign math_posts = site.posts | where: "math", true %}
+  {% if page.math == true %}
+    {% include mathjax.html %}
+  {% elsif page.layout == 'home' and math_posts.size > 0 %}
+    {% include mathjax.html %}
+  {% endif %}
 </head>

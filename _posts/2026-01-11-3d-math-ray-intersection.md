@@ -4,6 +4,7 @@ title: "3D数学基础：射线求交"
 date: 2026-01-11 16:52:31 +0800
 author: "DZPMX"
 published: true
+math: true
 header-img: "assets/images/blog-cover.jpg"
 no-catalog: false
 tags:
