@@ -19,7 +19,10 @@ layout: default
     <section class="article-section" id="articles" aria-labelledby="articles-title">
       <h2 class="visually-hidden" id="articles-title">{{ page.list_title | escape }}</h2>
       <ol class="post-list">
-        {% for post in site.posts %}
+        {% assign start_posts = site.posts | where: 'path', '_posts/2026-10-05-getting-started.md' %}
+        {% assign other_posts = site.posts | where_exp: 'post', "post.path != '_posts/2026-10-05-getting-started.md'" %}
+        {% assign ordered_posts = start_posts | concat: other_posts %}
+        {% for post in ordered_posts %}
         <li>
           <article class="post-preview">
             <a class="post-preview-link" href="{{ post.url | relative_url }}">
