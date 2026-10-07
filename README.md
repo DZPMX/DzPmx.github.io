@@ -13,6 +13,8 @@ title: "文章标题"
 date: 2026-10-07 00:00:00 +0800
 header-img: "assets/images/文章目录/cover.jpg"
 no-catalog: false
+typora-root-url: ../
+typora-copy-images-to: ../assets/images/文章目录
 tags:
   - Graphics Sutdy
 ---
@@ -23,12 +25,22 @@ tags:
 图片放在 `assets/images/`，正文引用例如：
 
 ```markdown
-![图片说明]({{ '/assets/images/文章目录/figure-01.png' | relative_url }})
+![图片说明](/assets/images/文章目录/figure-01.png)
 ```
 
 图片需要图注时，可以沿用现有文章的 `<figure>` / `<figcaption>` 结构。正文图片保留比例，居中并限制显示宽度。文章日期决定首页顺序，日期新的在前；文件名和 `date` 保持一致。
 
 当前标签为 `Technical Artist`、`Graphics Sutdy` 和 `闲谈`。标签写在文章开头的 `tags` 数组中，文章头部、FEATURED TAGS 和 Archive 会共同读取，不需要手工编辑标签列表。含空格的标签保持为一个列表项。
+
+## 本地写作
+
+本地仓库位于 `E:\GitHub\DzPmx.github.io`。用 Typora 打开这个文件夹，在 `_posts` 中编辑文章；保留开头的日期、头图、Tag 和目录设置。新文章复制上面的配置，将文章目录、标题、日期和头图替换为实际值。
+
+- 开始编辑前，在 GitHub Desktop 中点击 **Fetch origin**，有更新时再点击 **Pull origin**。
+- `typora-root-url: ../` 让 Typora 从博客根目录查找 `/assets/images/...` 图片；`typora-copy-images-to` 指定这篇文章插入图片时的保存目录。
+- 插入或粘贴图片后，检查图片链接以 `/assets/images/` 开头。不要提交 `C:\...`、`file:///...` 或 `../assets/...` 这样的正文图片地址；文章发布后的网址层级与本地文件夹不同。
+- Typora 中保存文件后，在 GitHub Desktop 查看文章和图片改动，填写提交说明，点击 **Commit to main**，再点击 **Push origin**。只有推送后才会触发博客发布。
+- Typora 用于正文编辑，头图、CATALOG 和 Hux 页面布局以实际博客页面为准；不需要导出 HTML 或插入 `[TOC]`。
 
 ## 站点维护
 
