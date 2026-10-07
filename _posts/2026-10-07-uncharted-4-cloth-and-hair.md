@@ -29,10 +29,6 @@ typora-copy-images-to: ../assets/images/uncharted-4-cloth-and-hair
     Advances in Real-Time Rendering- SIGGRAPH 2016 advances.realtimerendering.com/s2016/
   </a>
 </p>
-
-
----
-
 ## 1.布料材质库
 在制作衣服材质方面方面，顽皮狗的开发者遇到了一下的挑战：
 
