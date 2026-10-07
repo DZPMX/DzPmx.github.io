@@ -2,39 +2,47 @@
 layout: default
 ---
 <section class="cover home-cover" aria-labelledby="home-title">
-  <div class="cover-inner">
-    <h1 id="home-title">{{ site.author | escape }} Blog</h1>
-    <div class="cover-description">{{ content }}</div>
+  <div class="container">
+    <div class="content-row">
+      <div class="cover-column">
+        <div class="site-heading">
+          <h1 id="home-title">{{ site.author | escape }} Blog</h1>
+          <div class="cover-description">{{ content }}</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<div class="home-grid shell">
-  <section class="article-section" id="articles" aria-labelledby="articles-title">
-    <h2 class="visually-hidden" id="articles-title">{{ page.list_title | escape }}</h2>
-    <ol class="post-list">
-      {% for post in site.posts %}
-      <li>
-        <article class="post-preview">
-          <a class="post-preview-link" href="{{ post.url | relative_url }}">
-            <h3>{{ post.title | escape }}</h3>
-            <p class="post-excerpt">{{ post.excerpt | strip_html | normalize_whitespace | truncate: 200 | escape }}</p>
-          </a>
-          <p class="post-byline">{{ post.author | default: site.author | escape }} · <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y 年 %m 月 %d 日' }}</time></p>
-        </article>
-      </li>
-      {% endfor %}
-    </ol>
-  </section>
+<div class="container">
+  <div class="content-row">
+    <section class="article-section" id="articles" aria-labelledby="articles-title">
+      <h2 class="visually-hidden" id="articles-title">{{ page.list_title | escape }}</h2>
+      <ol class="post-list">
+        {% for post in site.posts %}
+        <li>
+          <article class="post-preview">
+            <a class="post-preview-link" href="{{ post.url | relative_url }}">
+              <h3>{{ post.title | escape }}</h3>
+              <p class="post-excerpt">{{ post.excerpt | strip_html | normalize_whitespace | truncate: 300 | escape }}</p>
+            </a>
+            <p class="post-byline">Posted by {{ post.author | default: site.author | escape }} on <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%B %-d, %Y' }}</time></p>
+          </article>
+        </li>
+        {% endfor %}
+      </ol>
+    </section>
 
-  <aside class="profile-sidebar" aria-labelledby="profile-title">
-    <h2 id="profile-title">ABOUT ME</h2>
-    <a class="profile-image-link" href="https://github.com/{{ site.github_username | escape }}" aria-label="访问 {{ site.author | escape }} 的 GitHub 主页">
-      <img class="profile-image" src="https://github.com/{{ site.github_username | escape }}.png?size=320" alt="{{ site.author | escape }} 的 GitHub 头像" width="180" height="180" loading="lazy" decoding="async">
-    </a>
-    <p class="profile-name">{{ site.author | escape }}</p>
-    <div class="profile-links">
-      <a href="https://github.com/{{ site.github_username | escape }}">GitHub 主页 <span aria-hidden="true">↗</span></a>
-      <a href="{{ '/feed.xml' | relative_url }}">RSS 订阅 <span aria-hidden="true">↗</span></a>
-    </div>
-  </aside>
+    <aside class="profile-sidebar" aria-labelledby="profile-title">
+      <h2 id="profile-title">ABOUT ME</h2>
+      <a class="profile-image-link" href="https://github.com/{{ site.github_username | escape }}" aria-label="Visit {{ site.author | escape }} on GitHub">
+        <img class="profile-image" src="https://github.com/{{ site.github_username | escape }}.png?size=320" alt="{{ site.author | escape }}'s GitHub avatar" width="180" height="180" loading="lazy" decoding="async">
+      </a>
+      <p class="profile-name">{{ site.author | escape }}</p>
+      <div class="profile-links">
+        <a href="https://github.com/{{ site.github_username | escape }}">GitHub</a>
+        <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+      </div>
+    </aside>
+  </div>
 </div>

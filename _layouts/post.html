@@ -3,16 +3,27 @@ layout: default
 ---
 <article class="post-page">
   <header class="cover post-cover">
-    <div class="cover-inner reading-shell">
-      <a class="back-link" href="{{ '/' | relative_url }}#articles"><span aria-hidden="true">←</span> 全部文章</a>
-      <h1>{{ page.title | escape }}</h1>
-      <p class="post-byline">{{ page.author | default: site.author | escape }} · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y 年 %m 月 %d 日' }}</time></p>
+    <div class="container">
+      <div class="content-row">
+        <div class="cover-column">
+          <div class="post-heading">
+            <h1>{{ page.title | escape }}</h1>
+            <p class="post-byline">Posted by {{ page.author | default: site.author | escape }} on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time></p>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
-  <div class="post-content reading-shell">
-    {{ content }}
+  <div class="container">
+    <div class="content-row">
+      <div class="reading-column">
+        <div class="post-content">
+          {{ content }}
+        </div>
+        <footer class="post-end">
+          <a class="back-link" href="{{ '/' | relative_url }}#articles"><span aria-hidden="true">←</span> All Posts</a>
+        </footer>
+      </div>
+    </div>
   </div>
-  <footer class="post-end reading-shell">
-    <a class="back-link" href="{{ '/' | relative_url }}#articles"><span aria-hidden="true">←</span> 返回文章列表</a>
-  </footer>
 </article>

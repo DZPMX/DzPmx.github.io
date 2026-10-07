@@ -39,7 +39,11 @@ date: 2026-10-05 00:00:00 +0800
 
 ## 视觉设计
 
-页面参考 Candycat Blog（<https://candycat1992.github.io/>）的大幅封面、白色导航、文章列表和个人侧栏布局，使用独立编写的 Jekyll 模板与 CSS 实现。侧栏头像直接使用 `_config.yml` 中 GitHub 用户名对应的公开头像。
+页面以 Candycat Blog（<https://candycat1992.github.io/>）的字体回退顺序、字号、字重、颜色、间距和响应式断点为对照，使用 Jekyll 模板与 CSS 实现。界面栏目使用英文，文章保持原文；日期采用 `Posted by 作者 on Month D, YYYY` 格式。侧栏头像直接使用 `_config.yml` 中 GitHub 用户名对应的公开头像。
+
+正文使用参考站的系统字体栈，日期使用 Lora／Times New Roman，代码使用 Fira Code／Menlo／Monaco／Consolas 的回退顺序；未额外下载字体，实际字体取决于设备已有字体。代码配色对齐参考站的 One Dark 规则。页面宽度与断点采用参考站的 750／970／1170px 和 768／992／1200px。
+
+手机导航使用原生折叠菜单承载现有链接；没有移植参考站的搜索、评论、作品集及桌面滚动导航脚本。原创封面和现有文章继续保留。
 
 封面由内置 imagegen 工具生成。提示词：
 
