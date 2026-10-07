@@ -58,13 +58,20 @@ img, video { display: block; max-width: 100%; height: auto; }
 .post-excerpt { margin: 0; color: var(--muted); font-size: 13px; font-style: italic; line-height: 1.7; overflow-wrap: anywhere; }
 .post-excerpt:hover { color: var(--accent); }
 .post-byline { margin: 0 0 25px; color: var(--muted); font-family: var(--serif); font-size: 16px; font-style: italic; font-weight: 400; line-height: 1.7; }
-.profile-sidebar { display: none; color: var(--sidebar-ink); font-size: 14px; }
+.profile-sidebar { color: var(--sidebar-ink); font-size: 14px; }
 .profile-sidebar h2 { margin: 10px 0; padding-bottom: 1em; color: var(--muted); font-size: 14px; }
 .profile-image { width: 80%; height: auto; margin-bottom: 20px; border-radius: 5px; }
 .profile-name { margin: 0 0 20px; font-size: 14px; font-weight: 400; }
-.profile-links { display: flex; gap: 20px; }
+.featured-tags { margin-bottom: -5px; }
+.featured-tag { display: inline-block; margin: 0 5px 6px 1px; padding: 0 10px; border: 1px solid var(--sidebar-ink); border-radius: 999em; font-size: 12px; line-height: 24px; }
+.profile-about { display: none; margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--line); }
+.social-links { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.social-link { position: relative; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 2em; height: 2em; border-radius: 50%; font-size: 1.33333333em; line-height: 1; }
+.social-link::before { content: ""; position: absolute; inset: .142857em; border-radius: 50%; background: currentColor; }
+.social-link svg, .social-glyph { position: relative; display: block; width: 1em; height: 1em; color: #fff; }
+.social-glyph { font-family: var(--sans); font-weight: 400; line-height: 1; text-align: center; }
 .site-footer { padding-block: 50px 65px; color: #777; text-align: center; font-size: 14px; }
-.footer-links { display: flex; justify-content: center; gap: 25px; margin: 0; color: var(--ink); font-size: 20px; font-weight: 400; }
+.footer-links { justify-content: center; gap: 16px; margin: 0; color: var(--ink); font-size: 20px; font-weight: 400; }
 .site-footer p { margin: 25px 0 0; }
 .post-heading { padding-block: 85px 55px; }
 .post-heading h1 { margin: 20px 0 24px; font-size: 30px; }
@@ -158,7 +165,8 @@ img, video { display: block; max-width: 100%; height: auto; }
   :root { --page-width: 970px; }
   .cover-column, .reading-column { grid-column: 2 / span 10; }
   .article-section { grid-column: 2 / span 8; }
-  .profile-sidebar { display: block; grid-column: 10 / span 3; }
+  .profile-sidebar { grid-column: 10 / span 3; }
+  .profile-about { display: block; }
 }
 @media (min-width: 1200px) {
   :root { --page-width: 1170px; }

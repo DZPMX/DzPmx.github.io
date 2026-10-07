@@ -33,16 +33,24 @@ layout: default
       </ol>
     </section>
 
-    <aside class="profile-sidebar" aria-labelledby="profile-title">
-      <h2 id="profile-title">ABOUT ME</h2>
-      <a class="profile-image-link" href="https://github.com/{{ site.github_username | escape }}" aria-label="Visit {{ site.author | escape }} on GitHub">
-        <img class="profile-image" src="https://github.com/{{ site.github_username | escape }}.png?size=320" alt="{{ site.author | escape }}'s GitHub avatar" width="180" height="180" loading="lazy" decoding="async">
-      </a>
-      <p class="profile-name">{{ site.author | escape }}</p>
-      <div class="profile-links">
-        <a href="https://github.com/{{ site.github_username | escape }}">GitHub</a>
-        <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
-      </div>
+    <aside class="profile-sidebar" aria-label="Sidebar">
+      <section aria-labelledby="featured-tags-title">
+        <h2 id="featured-tags-title">FEATURED TAGS</h2>
+        <div class="featured-tags">
+          <span class="featured-tag">Technical Artist</span>
+        </div>
+      </section>
+
+      <section class="profile-about" aria-labelledby="profile-title">
+        <h2 id="profile-title">ABOUT ME</h2>
+        <a class="profile-image-link" href="https://github.com/{{ site.github_username | escape }}" aria-label="Visit {{ site.author | escape }} on GitHub">
+          <img class="profile-image" src="https://github.com/{{ site.github_username | escape }}.png?size=320" alt="{{ site.author | escape }}'s GitHub avatar" width="180" height="180" loading="lazy" decoding="async">
+        </a>
+        <p class="profile-name">{{ site.author | escape }}</p>
+        <nav class="social-links profile-links" aria-label="Social links">
+          {% include social-links.html %}
+        </nav>
+      </section>
     </aside>
   </div>
 </div>
