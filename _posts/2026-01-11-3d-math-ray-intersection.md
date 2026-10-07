@@ -3,7 +3,7 @@ layout: post
 title: "3D数学基础：射线求交"
 date: 2026-01-11 16:52:31 +0800
 author: "DZPMX"
-published: false
+published: true
 header-img: "assets/images/blog-cover.jpg"
 no-catalog: false
 tags:
@@ -18,13 +18,56 @@ typora-copy-images-to: ../assets/images/ray-intersectio
 
 ## 二、射线与平面求交
 
-已知平面上一点 $P_{0}$ 与平面的法向量 $N$，要定义这个平面，需要满足以下条件：平面上的任意点 $P$ 指向点 $P_{0}$ 的向量与 $N$ 垂直。用公式表示为：$(P-P_{0})\cdot N=0$
+已知平面上一点 $P_{0}$ 与非零法向量 $N$，平面上的任意点 $P$ 都满足：从 $P_{0}$ 指向 $P$ 的向量与 $N$ 垂直。因此，平面方程为：
 
-当射线与平面存在交点时，该交点也在平面上，因此可得 $(O+tD-P_{0})\cdot N=0$
+$$
+(P-P_{0})\cdot N=0
+$$
 
-展开求 $t$：$(O-P_{0})\cdot N+t（D\cdot N）=0$
+射线的参数方程为 $P=O+tD$，其中 $D\neq0$，$t\geq0$，并将起点计入射线。要求射线与平面的交点，就需要找到同时满足这两个方程的点。
 
-最终可得 $t=\frac{(P_{0}-O)\cdot N}{D\cdot N}$。将 $t$ 代入射线参数方程，即可得到交点的位置。
+将 $P=O+tD$ 代入平面方程：
+
+$$
+(O+tD-P_{0})\cdot N=0
+$$
+
+展开点乘：
+
+$$
+(O-P_{0})\cdot N+t(D\cdot N)=0
+$$
+
+将与 $t$ 无关的项移到右侧：
+
+$$
+t(D\cdot N)=(P_{0}-O)\cdot N
+$$
+
+求解 $t$ 前，先判断其系数 $D\cdot N$ 是否为 0。
+
+当 $D\cdot N=0$ 时，射线方向平行于平面，上式左侧恒为 0。此时根据右侧的值，可分为两种情况：
+
+- 若 $(P_{0}-O)\cdot N\neq0$，则等式无法成立，不存在满足条件的 $t$，射线与平面不相交。
+- 若 $(P_{0}-O)\cdot N=0$，则任意 $t\geq0$ 都满足等式。射线起点在平面上，整条射线也都在平面内，属于共面情况，没有唯一交点。
+
+当 $D\cdot N\neq0$ 时，射线方向不平行于平面，可以在等式两侧同时除以 $D\cdot N$，得到：
+
+$$
+t=\frac{(P_{0}-O)\cdot N}{D\cdot N}
+$$
+
+这个解对应射线所在直线与平面的唯一交点。由于射线只包含 $t\geq0$ 的部分，还需要检查求得的 $t$：
+
+- 若 $t<0$，交点位于射线反方向的延长线上，射线本身不与平面相交。
+- 若 $t=0$，交点就是射线起点 $O$。
+- 若 $t>0$，交点位于射线起点前方。
+
+因此，在 $D\cdot N\neq0$ 且 $t\geq0$ 时，射线与平面有唯一交点。最后将求得的 $t$ 代回射线参数方程，即可得到交点的位置：
+
+$$
+P=O+tD
+$$
 
 ## 三、射线与三角形求交
 
@@ -32,7 +75,7 @@ typora-copy-images-to: ../assets/images/ray-intersectio
 
 首先需要确定三角形所在的平面。假设三角形由三个顶点 $P_{0},P_{1},P_{2}$ 确定，则其所在平面的法向量为 $N=Normalize((P_{1}-P_{0})\times(P_{2}-P_{0}))$
 
-当 $N\cdot D\ >0$ 时，说明射线与平面相交，可根据射线与平面的求交步骤求得交点的位置。
+接着，使用上一节的方法求射线与该平面的交点。若判定为不相交，则射线也不与三角形相交；若判定为共面，则需要单独处理平面内的射线与三角形求交。以下继续讨论射线与平面存在唯一交点的情况。
 
 此时已知射线与平面的交点 $P$，如下图所示：
 
@@ -46,7 +89,7 @@ typora-copy-images-to: ../assets/images/ray-intersectio
 
 已知球体的球心为 $C$，半径为 $r$，则球面上任意一点 $P$ 到球心的距离必然等于半径 $r$，用公式表示为：$\left| P-C \right|=r$。
 
-已知向量的点乘公式为 $a\cdot b=\left| a \right| \times \left| b \right|\times cos\theta$，当向量 $a$ 和向量 $b$ 相等时， $cos\theta$ 为 0，则有 $a\cdot a=\left| a \right| \times \left| a \right|$，由此得到球面方程 $(P-C)\cdot(P-C)=r^{2}$
+已知向量的点乘公式为 $a\cdot b=\left| a \right| \times \left| b \right|\times cos\theta$，当向量 $a$ 和向量 $b$ 相等时， $cos\theta$ 为 1，则有 $a\cdot a=\left| a \right| \times \left| a \right|$，由此得到球面方程 $(P-C)\cdot(P-C)=r^{2}$
 
 将射线参数方程中的 P 代入球面方程，可得 $(O+tD-C)\cdot(O+tD-C)=r^{2}$
 
