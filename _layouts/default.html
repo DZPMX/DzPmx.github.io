@@ -16,7 +16,7 @@
     {% endcapture %}
     <header class="site-header">
       <div class="nav-shell">
-        <a class="brand" href="{{ '/' | relative_url }}">{{ site.author | escape }} Blog</a>
+        <a class="brand" href="{{ '/' | relative_url }}">{{ site.author | upcase | escape }}</a>
         <nav class="site-nav desktop-nav" aria-label="Main navigation">{{ navigation_links }}</nav>
         <details class="mobile-nav">
           <summary aria-label="Toggle navigation"><span></span><span></span><span></span></summary>
