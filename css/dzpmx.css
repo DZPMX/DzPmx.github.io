@@ -2,6 +2,7 @@
 .intro-header { position: relative; }
 .header-mask { position: absolute; inset: 0; }
 .site-heading .subheading p { margin: 0; }
+.post-pin { display: inline-block; margin-right: 10px; padding: 3px 7px; border: 1px solid #0085a1; border-radius: 3px; color: #0085a1; font-size: 12px; font-weight: 600; line-height: 1.2; vertical-align: middle; white-space: nowrap; }
 .post-container { overflow-wrap: break-word; }
 .post-container img { max-width: min(100%, 720px); }
 .short-about img { height: auto; }

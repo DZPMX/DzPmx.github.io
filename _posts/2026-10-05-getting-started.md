@@ -2,6 +2,7 @@
 layout: post
 title: "START"
 date: 2026-10-05 22:00:00 +0800
+pinned: true
 header-img: "assets/images/blog-cover.jpg"
 no-catalog: true
 tags:
