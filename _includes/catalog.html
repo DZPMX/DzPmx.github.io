@@ -1,0 +1,23 @@
+<!-- Hux Blog's catalog initialization, adapted to DZPMX's single-language post layout. -->
+<script>
+  var $catalog = $('.catalog-body');
+  $('.post-container').find('h1,h2,h3,h4,h5,h6').each(function () {
+    var $heading = $(this);
+    $('<li>').addClass(this.tagName.toLowerCase() + '_nav')
+      .append($('<a>').attr('href', '#' + this.id).text($heading.text()))
+      .appendTo($catalog);
+  });
+  $('.catalog-toggle').on('click', function (event) {
+    event.preventDefault();
+    $('.side-catalog').toggleClass('fold');
+  });
+  $catalog.onePageNav({
+    currentClass: 'active',
+    changeHash: false,
+    easing: 'swing',
+    filter: '',
+    scrollSpeed: 700,
+    scrollThreshold: 0.2,
+    padding: 80
+  });
+</script>

@@ -2,15 +2,22 @@
 layout: post
 title: "神秘海域4的布料与头发流程"
 date: 2026-10-07 00:00:00 +0800
+header-img: "assets/images/uncharted-4-cloth-and-hair/siggraph-cover.jpg"
+header-mask: 0.35
+header-img-credit: "Yibing Jiang / Naughty Dog, SIGGRAPH 2016"
+header-img-credit-href: "https://advances.realtimerendering.com/s2016/"
+no-catalog: false
+tags:
+  - Graphics Sutdy
 ---
 
-本文为[SIGGRAPH2016](https://zhida.zhihu.com/search?content_id=247814032&content_type=Article&match_order=1&q=SIGGRAPH2016&zhida_source=entity)《The Process of Creating Volumetric-based Materials in Uncharted 4》的PPT的笔记，内容上总体分为布料纤维和头发两个部分的美术和渲染流程。至于为什么会有这篇文章，是因为面试时被问到了，而且头发部分的美术流程现在应用的也比较广泛，看了一遍怕记不住，索性就当记个笔记，顺带分享给有兴趣的人也一起看看。如果有描述错误的地方可以评论我会及时更正，感谢！
+本文为SIGGRAPH2016《The Process of Creating Volumetric-based Materials in Uncharted 4》的PPT的笔记，内容上总体分为布料纤维和头发两个部分的美术和渲染流程。至于为什么会有这篇文章，是因为面试时被问到了，而且头发部分的美术流程现在应用的也比较广泛，看了一遍怕记不住，索性就当记个笔记，顺带分享给有兴趣的人也一起看看。如果有描述错误的地方可以评论我会及时更正，感谢！
 
 分享主要包含了四个部分的内容
 
-1. 早期状态建立角色[Shading管线](https://zhida.zhihu.com/search?content_id=247814032&content_type=Article&match_order=1&q=Shading%E7%AE%A1%E7%BA%BF&zhida_source=entity)（背景介绍）
-2. 建立[织物着色器库](https://zhida.zhihu.com/search?content_id=247814032&content_type=Article&match_order=1&q=%E7%BB%87%E7%89%A9%E7%9D%80%E8%89%B2%E5%99%A8%E5%BA%93&zhida_source=entity)
-3. 建立[头发着色器库](https://zhida.zhihu.com/search?content_id=247814032&content_type=Article&match_order=1&q=%E5%A4%B4%E5%8F%91%E7%9D%80%E8%89%B2%E5%99%A8%E5%BA%93&zhida_source=entity)
+1. 早期状态建立角色Shading管线（背景介绍）
+2. 建立织物着色器库
+3. 建立头发着色器库
 4. 着色器包的介绍和实例
 
 这里只会对第二个部分和第三个部分的内容进行详细的阐述，其它部分如感兴趣可以自行下载原PPT观看
@@ -78,7 +85,7 @@ date: 2026-10-07 00:00:00 +0800
   <figcaption>不同纹理种类的组合以实现大多数织物的效果</figcaption>
 </figure>
 
-以下是神秘海域4多种不同分辨率的可平铺细节叠加的材质预览效果，从基础的织物布料[BRDF](https://zhida.zhihu.com/search?content_id=247814032&content_type=Article&match_order=1&q=BRDF&zhida_source=entity)，添加微编织结构贴图，在添加织物老化和缺陷细节和褶皱后效果非常的真实。
+以下是神秘海域4多种不同分辨率的可平铺细节叠加的材质预览效果，从基础的织物布料BRDF，添加微编织结构贴图，在添加织物老化和缺陷细节和褶皱后效果非常的真实。
 
 <figure>
   <img src="{{ '/assets/images/uncharted-4-cloth-and-hair/figure-07.png' | relative_url }}" alt="织物材质的细节叠加" width="752" height="424" loading="lazy">
@@ -100,7 +107,7 @@ date: 2026-10-07 00:00:00 +0800
 ### 织物的反射模型
 {: #h_718578091_2 }
 
-对于丝绸，丝绒和其它高反射的织物布料，我们同时尝试了GGX各向异性和[Kajiya-Kay](https://zhida.zhihu.com/search?content_id=247814032&content_type=Article&match_order=1&q=Kajiya-Kay&zhida_source=entity)两个Shading方法。GGX各向异性版本的效果要稍好，不过基于我们的光照模型，其实在大多数情况下比较难看出优势，所以我们选择了更性价比更好的Kajiya-Kay的版本。
+对于丝绸，丝绒和其它高反射的织物布料，我们同时尝试了GGX各向异性和Kajiya-Kay两个Shading方法。GGX各向异性版本的效果要稍好，不过基于我们的光照模型，其实在大多数情况下比较难看出优势，所以我们选择了更性价比更好的Kajiya-Kay的版本。
 
 对于棉布，羊毛材质，我们用了Ready at Dawn’s 工作室的布料反射模型并做了散射效果上的修改
 
@@ -119,9 +126,9 @@ date: 2026-10-07 00:00:00 +0800
 
 发丝是非常细且半透的物体，每根发丝都有不同的法线，并且发丝之间相互自阴影，为了使头发有体积感的表现，我们需要按照顺序来逐个解决这些问题。
 
-PS4在性能上虽然有大幅度的提升，但是仍然不足达到实时渲染上百万根发丝的效果，因为有限的研发时间，我们也没有在[曲面细分着色器](https://zhida.zhihu.com/search?content_id=247814032&content_type=Article&match_order=1&q=%E6%9B%B2%E9%9D%A2%E7%BB%86%E5%88%86%E7%9D%80%E8%89%B2%E5%99%A8&zhida_source=entity)上研究太深，最终还是考虑使用发片（Hair Cards）的方式来制作头发
+PS4在性能上虽然有大幅度的提升，但是仍然不足达到实时渲染上百万根发丝的效果，因为有限的研发时间，我们也没有在曲面细分着色器上研究太深，最终还是考虑使用发片（Hair Cards）的方式来制作头发
 
-完全使用[AlphaBlend渲染](https://zhida.zhihu.com/search?content_id=247814032&content_type=Article&match_order=1&q=AlphaBlend%E6%B8%B2%E6%9F%93&zhida_source=entity)头发虽然会有一个非常好的效果，但会带来非常严重的OverDraw情况。
+完全使用AlphaBlend渲染头发虽然会有一个非常好的效果，但会带来非常严重的OverDraw情况。
 
 <figure>
   <img src="{{ '/assets/images/uncharted-4-cloth-and-hair/figure-12.png' | relative_url }}" alt="完全使用Alpha Blend会有大量的OverDraw" width="1058" height="455" loading="lazy">
@@ -213,7 +220,7 @@ Bake Shadow使得头发看起来更有深度感，有体积感。
 
 这里对头发的shading做了一些调整，来使得头发的渲染更真实，
 
-1. 对BakeShadow添加了[Light Wrap](https://zhida.zhihu.com/search?content_id=247814032&content_type=Article&match_order=1&q=Light+Wrap&zhida_source=entity)
+1. 对BakeShadow添加了Light Wrap
 2. 使用光照探针的强度和头发的颜色来控制BakeShadow
 
 <figure>

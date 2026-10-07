@@ -1,56 +1,34 @@
 ---
 layout: default
 ---
-<section class="cover home-cover" aria-labelledby="home-title">
-  <div class="container">
-    <div class="content-row">
-      <div class="cover-column">
-        <div class="site-heading">
-          <h1 id="home-title">{{ site.author | escape }} Blog</h1>
-          <div class="cover-description">{{ content }}</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- Hux Blog page grid adapted for DZPMX's existing homepage content and social icons. -->
+{% include intro-header.html type='page' %}
 <div class="container">
-  <div class="content-row">
-    <section class="article-section" id="articles" aria-labelledby="articles-title">
-      <h2 class="visually-hidden" id="articles-title">{{ page.list_title | escape }}</h2>
-      <ol class="post-list">
-        {% for post in site.posts %}
-        <li>
-          <article class="post-preview">
-            <a class="post-preview-link" href="{{ post.url | relative_url }}">
-              <h3>{{ post.title | escape }}</h3>
-              <p class="post-excerpt">{{ post.excerpt | strip_html | normalize_whitespace | truncate: 300 | escape }}</p>
-            </a>
-            <p class="post-byline">Posted by {{ post.author | default: site.author | escape }} on <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%B %-d, %Y' }}</time></p>
-          </article>
-        </li>
-        {% endfor %}
-      </ol>
-    </section>
-
-    <aside class="profile-sidebar" aria-label="Sidebar">
-      <section aria-labelledby="featured-tags-title">
-        <h2 id="featured-tags-title">FEATURED TAGS</h2>
-        <div class="featured-tags">
-          <span class="featured-tag">Technical Artist</span>
-           <span class="featured-tag">Graphics</span>
-        </div>
-      </section>
-
-      <section class="profile-about" aria-labelledby="profile-title">
-        <h2 id="profile-title">ABOUT ME</h2>
-        <a class="profile-image-link" href="https://github.com/{{ site.github_username | escape }}" aria-label="Visit {{ site.author | escape }} on GitHub">
-          <img class="profile-image" src="https://github.com/{{ site.github_username | escape }}.png?size=320" alt="{{ site.author | escape }}'s GitHub avatar" width="180" height="180" loading="lazy" decoding="async">
+  <div class="row">
+    <section class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 postlist-container" id="articles" aria-label="Articles">
+      {% for post in site.posts %}
+      <div class="post-preview">
+        <a href="{{ post.url | relative_url }}">
+          <h2 class="post-title">{{ post.title | escape }}</h2>
+          <div class="post-content-preview">{{ post.excerpt | strip_html | normalize_whitespace | truncate: 200 | escape }}</div>
         </a>
-        <p class="profile-name">{{ site.author | escape }}</p>
-        <nav class="social-links profile-links" aria-label="Social links">
-          {% include social-links.html %}
-        </nav>
+        <p class="post-meta">Posted by {{ post.author | default: site.author | escape }} on <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%B %-d, %Y' }}</time></p>
+      </div>
+      <hr>
+      {% endfor %}
+    </section>
+    <aside class="col-lg-3 col-md-3 col-sm-12 col-xs-12 sidebar-container" aria-label="Sidebar">
+      {% include featured-tags.html %}
+      <section class="visible-md visible-lg">
+        <hr>
+        <h5>ABOUT ME</h5>
+        <div class="short-about">
+          <a href="https://github.com/{{ site.github_username | escape }}" aria-label="Visit DZPMX on GitHub">
+            <img src="https://github.com/{{ site.github_username | escape }}.png?size=320" alt="DZPMX" width="180" height="180" loading="lazy">
+          </a>
+          <p>{{ site.author | escape }}</p>
+          <nav class="social-links" aria-label="Social links">{% include social-links.html %}</nav>
+        </div>
       </section>
     </aside>
   </div>

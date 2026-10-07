@@ -1,0 +1,31 @@
+{% comment %}Hux Blog header adapted for DZPMX: current post/page fields, existing homepage text, and image attribution.{% endcomment %}
+{% assign header_image = page.header-img | default: site.header-img %}
+<header class="intro-header" style="background-image: url('{{ header_image | relative_url }}')">
+  <div class="header-mask" style="background: rgba(0, 0, 0, {{ page.header-mask | default: 0 }})"></div>
+  {% if page.header-img-credit %}
+  <div class="header-img-credit">Image by <a href="{{ page.header-img-credit-href | escape }}">{{ page.header-img-credit | escape }}</a></div>
+  {% endif %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1">
+        {% if include.type == 'post' %}
+        <div class="post-heading">
+          <div class="tags">
+            {% for tag in page.tags %}
+            <a class="tag" href="{{ '/archive/' | relative_url }}?tag={{ tag | url_encode }}" title="{{ tag | escape }}">{{ tag | escape }}</a>
+            {% endfor %}
+          </div>
+          <h1>{{ page.title | escape }}</h1>
+          <h2 class="subheading">{{ page.subtitle | escape }}</h2>
+          <span class="meta">Posted by {{ page.author | default: site.author | escape }} on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time></span>
+        </div>
+        {% else %}
+        <div class="site-heading"{% if include.short %} id="tag-heading"{% endif %}>
+          <h1>{{ page.title | default: site.title | escape }}</h1>
+          <div class="subheading">{% if page.layout == 'home' %}{{ content }}{% else %}{{ page.description | escape }}{% endif %}</div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</header>

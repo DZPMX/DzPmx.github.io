@@ -1,0 +1,24 @@
+/* DZPMX additions: existing SVG social icons and consistent article media. */
+.intro-header { position: relative; }
+.header-mask { position: absolute; inset: 0; }
+.site-heading .subheading p { margin: 0; }
+.post-container { overflow-wrap: break-word; }
+.post-container img { max-width: min(100%, 720px); }
+.short-about img { height: auto; }
+.post-container figure { max-width: 720px; margin: 30px auto; }
+.post-container figure img { max-width: 100%; height: auto; margin: 0 auto; }
+.post-container figcaption { margin-top: 10px; color: #777; text-align: center; font-size: 14px; font-style: italic; }
+.post-container video { display: block; max-width: 100%; height: auto; margin: 30px auto; }
+.post-container iframe { max-width: 100%; }
+.post-container :is(h1, h2, h3, h4, h5, h6) { scroll-margin-top: 80px; }
+#tag_cloud a { color: #0085a1; }
+#tag_cloud a:hover, #tag_cloud a.focus { color: #fff; }
+.social-links { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.social-link { position: relative; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 2em; height: 2em; border-radius: 50%; font-size: 1.33333333em; line-height: 1; }
+.social-link::before { content: ""; position: absolute; inset: .142857em; border-radius: 50%; background: currentColor; }
+.social-link svg, .social-glyph { position: relative; display: block; width: 1em; height: 1em; color: #fff; }
+.social-glyph { font-weight: 400; line-height: 1; text-align: center; }
+.footer-links { justify-content: center; gap: 16px; }
+.skip-link { position: absolute; z-index: 4; top: 12px; left: 20px; padding: 10px 18px; color: #fff; background: #0085a1; transform: translateY(-160%); }
+.skip-link:focus { transform: translateY(0); color: #fff; }
+a:focus-visible, button:focus-visible { outline: 2px solid #0085a1; outline-offset: 4px; }

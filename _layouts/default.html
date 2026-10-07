@@ -1,41 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | escape }}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% seo %}
-    {% feed_meta %}
-    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ site.time | date: '%s' }}">
-  </head>
-  <body>
-    <a class="skip-link" href="#main-content">跳转到正文</a>
-    {% capture navigation_links %}
-          <a href="{{ '/' | relative_url }}">Home</a>
-          <a href="{{ '/' | relative_url }}#articles">Archive</a>
-          <a href="https://github.com/{{ site.github_username | escape }}">GitHub</a>
-    {% endcapture %}
-    <header class="site-header">
-      <div class="nav-shell">
-        <a class="brand" href="{{ '/' | relative_url }}">{{ site.author | upcase | escape }}</a>
-        <nav class="site-nav desktop-nav" aria-label="Main navigation">{{ navigation_links }}</nav>
-        <details class="mobile-nav">
-          <summary aria-label="Toggle navigation"><span></span><span></span><span></span></summary>
-          <nav class="site-nav" aria-label="Mobile navigation">{{ navigation_links }}</nav>
-        </details>
-      </div>
-    </header>
-    <main id="main-content" tabindex="-1">
-      {{ content }}
-    </main>
-    <footer class="site-footer container">
-      <div class="content-row">
-        <div class="cover-column">
-          <nav class="social-links footer-links" aria-label="Social links">
-            {% include social-links.html %}
-          </nav>
-          <p>Copyright © {{ site.author | escape }} Blog {{ site.time | date: '%Y' }}</p>
-        </div>
-      </div>
-    </footer>
-  </body>
+{% include head.html %}
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  {% include nav.html %}
+  <main id="main-content" tabindex="-1">{{ content }}</main>
+  {% include footer.html %}
+</body>
 </html>

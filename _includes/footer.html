@@ -1,0 +1,20 @@
+<!-- Hux Blog footer adapted for DZPMX's social icons and selected theme features. -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <nav class="social-links footer-links" aria-label="Social links">{% include social-links.html %}</nav>
+        <p class="copyright text-muted">Copyright &copy; {{ site.title | escape }} {{ site.time | date: '%Y' }}<br>Powered by <a href="https://github.com/Huxpro/huxpro.github.io">Hux Blog</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="{{ '/js/jquery.min.js' | relative_url }}"></script>
+<script src="{{ '/js/hux-blog.js' | relative_url }}"></script>
+{% if page.layout == 'post' and page.no-catalog != true %}
+<script src="{{ '/js/jquery.nav.js' | relative_url }}"></script>
+{% include catalog.html %}
+{% endif %}
+{% if page.title == 'Archive' %}
+<script src="{{ '/js/archive.js' | relative_url }}"></script>
+{% endif %}

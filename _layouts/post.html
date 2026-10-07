@@ -1,28 +1,35 @@
 ---
 layout: default
 ---
-<article class="post-page">
-  <header class="cover post-cover">
-    <div class="container">
-      <div class="content-row">
-        <div class="cover-column">
-          <div class="post-heading">
-            <h1>{{ page.title | escape }}</h1>
-            <p class="post-byline">Posted by {{ page.author | default: site.author | escape }} on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+<!-- Hux Blog post layout adapted to Candycat's wider reading column and existing DZPMX content. -->
+{% include intro-header.html type='post' %}
+<article>
   <div class="container">
-    <div class="content-row">
-      <div class="reading-column">
-        <div class="post-content">
-          {{ content }}
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+        {{ content }}
+        <hr style="visibility: hidden;">
+        <ul class="pager">
+          {% if page.previous.url %}
+          <li class="previous"><a href="{{ page.previous.url | relative_url }}">Previous<br><span>{{ page.previous.title | escape }}</span></a></li>
+          {% endif %}
+          {% if page.next.url %}
+          <li class="next"><a href="{{ page.next.url | relative_url }}">Next<br><span>{{ page.next.title | escape }}</span></a></li>
+          {% endif %}
+        </ul>
+        <hr style="visibility: hidden;">
+      </div>
+      {% unless page.no-catalog %}
+      <aside class="col-lg-2 visible-lg-block sidebar-container catalog-container" aria-label="Article catalog">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5><a class="catalog-toggle" href="#">CATALOG</a></h5>
+          <ul class="catalog-body"></ul>
         </div>
-        <footer class="post-end">
-          <a class="back-link" href="{{ '/' | relative_url }}#articles"><span aria-hidden="true">←</span> All Posts</a>
-        </footer>
+      </aside>
+      {% endunless %}
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+        {% include featured-tags.html bottom=true %}
       </div>
     </div>
   </div>

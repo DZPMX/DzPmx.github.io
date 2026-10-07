@@ -1,11 +1,11 @@
-title: "DZPMX 的博客"
+title: "DZPMX Blog"
 description: "欢迎来到 DZPMX 的个人博客。"
 author: DZPMX
 url: "https://dzpmx.github.io"
 baseurl: ""
 lang: zh-CN
 timezone: Asia/Shanghai
-github_username: DzPmx
+github_username: DZPMX
 
 plugins:
   - jekyll-feed
@@ -13,3 +13,8 @@ plugins:
 
 exclude:
   - README.md
+
+# Hux Blog article headers and featured tags
+header-img: "assets/images/blog-cover.jpg"
+featured-tags: true
+featured-condition-size: 0

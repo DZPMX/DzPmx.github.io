@@ -1,38 +1,51 @@
-# DzPmx.github.io
+# DZPMX Blog
 
-使用 GitHub Pages、Jekyll 和自定义布局样式的个人博客源文件。
-
-博客地址：<https://dzpmx.github.io/>。
-
-## 发布设置
-
-1. 打开仓库 **Settings → Pages**。
-2. 将 **Source** 设为 **Deploy from a branch**，分支选择 **main**，目录选择 **/ (root)**，保存。
-3. 在仓库 **Actions** 页面检查部署结果，成功后访问博客地址。
+个人博客：<https://dzpmx.github.io/>。使用 GitHub Pages、Jekyll 和 [Hux Blog](https://github.com/Huxpro/huxpro.github.io) 主题。
 
 ## 写文章
 
-在 `_posts` 中添加 `YYYY-MM-DD-文章名称.md`。日期填写实际发布日期，文件顶部保留文章信息：
+在 `_posts` 中添加 `YYYY-MM-DD-文章名称.md`，或直接编辑对应的 Markdown。上传到 `main` 后，GitHub Pages 会自动发布；到仓库 **Actions** 查看部署是否成功。只有仓库文件保存成功还不代表网页已经更新。
 
-```markdown
+```yaml
 ---
 layout: post
 title: "文章标题"
-date: 2026-10-05 00:00:00 +0800
+date: 2026-10-07 00:00:00 +0800
+header-img: "assets/images/文章目录/cover.jpg"
+no-catalog: false
+tags:
+  - Graphics Sutdy
 ---
-
-正文使用 Markdown 编写。
 ```
 
-修改提交到 `main` 后，由 GitHub Pages 自动生成和发布。
+正文使用 Markdown。用 `##`、`###` 等标题组织章节，CATALOG 会读取正文标题生成跳转；没有小标题的短文设置 `no-catalog: true`，不要为凑目录改动正文。本站当前 Hux 模板读取的是 `no-catalog`，不使用旧文档中的 `catalog` 字段。
 
-## 修改首页和名称
+图片放在 `assets/images/`，正文引用例如：
 
-- `index.md`：首页欢迎文字；文章列表由首页布局自动生成。
-- `_config.yml`：博客标题、介绍、GitHub 用户名、语言和时区。
-- `_layouts/`：公共页面、首页和文章页布局。
-- `assets/css/site.css`：封面、导航、双栏文章列表、正文排版和手机布局。
-- `assets/images/blog-cover.jpg`：首页和文章页共用的封面图；替换图片即可更新封面。
-- `_posts/2026-10-05-getting-started.md`：入门文章，可以编辑或删除。
+```markdown
+![图片说明]({{ '/assets/images/文章目录/figure-01.png' | relative_url }})
+```
 
-本仓库通过 GitHub Pages 自带的 Jekyll 环境发布，不需要在本地安装 Ruby 或 Node.js。
+图片需要图注时，可以沿用现有文章的 `<figure>` / `<figcaption>` 结构。正文图片保留比例，居中并限制显示宽度。文章日期决定首页顺序，日期新的在前；文件名和 `date` 保持一致。
+
+当前标签为 `Technical Artist`、`Graphics Sutdy` 和 `闲谈`。标签写在文章开头的 `tags` 数组中，文章头部、FEATURED TAGS 和 Archive 会共同读取，不需要手工编辑标签列表。含空格的标签保持为一个列表项。
+
+## 站点维护
+
+- `_config.yml`：博客名称、作者、默认头图、语言和时区。
+- `index.md`：首页欢迎文字。
+- `_layouts/`、`_includes/`：Hux 页面结构及本站集成。
+- `css/bootstrap.min.css`、`css/hux-blog.css`：Hux 使用的原版样式。
+- `css/dzpmx.css`：本站图片排版和现有社交图标样式。
+- `js/`：Hux 导航、目录和标签归档依赖。
+- `assets/images/blog-cover.jpg`：首页、START 和 Archive 的山景头图。
+
+**Settings → Pages** 使用 **Deploy from a branch → main → / (root)**。不需要在本地安装 Ruby、Node.js 或运行构建命令。
+
+## 主题来源
+
+主题文件固定采用 Hux Blog 提交 `665e552dcaebbcc93a589c3d24686b241a337405`。文章栏宽和页脚对齐参考 [Candycat Blog](https://candycat1992.github.io/)。
+
+本站调整了模板中的品牌、社交链接、SEO/feed 接入、文章媒体和标签配置，并只接入当前使用的主题功能。原版 Hux CSS、主题脚本和第三方依赖保留来源；许可证位于 `LICENSES/`。Hux 主题许可证不改变文章及第三方图片的权属。
+
+神秘海域 4 文章头图来自 Yibing Jiang / Naughty Dog 的 [SIGGRAPH 2016 演讲](https://advances.realtimerendering.com/s2016/) 首页原图。
