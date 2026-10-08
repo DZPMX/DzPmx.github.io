@@ -6,45 +6,54 @@ header-img: "assets/images/blog-cover.jpg"
 permalink: /portfolio/
 ---
 
-{% include intro-header.html type='page' short=true %}
-
-<div class="container portfolio-page">
-  <div class="row">
-    <section class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1" aria-labelledby="experience-title">
-      <h2 id="experience-title" class="experience-heading">项目经历</h2>
-      <div class="experience-list">
-        <article class="experience-entry">
-          <div class="experience-cover">
-            <img src="{{ '/assets/images/portfolio/nba-showdown.jpg' | relative_url }}" alt="美职篮巅峰对决项目封面" width="647" height="976" loading="lazy">
-            <img class="experience-logo" src="{{ '/assets/images/portfolio/nba-showdown-logo.png' | relative_url }}" alt="" width="316" height="88" loading="lazy">
-          </div>
-          <p class="experience-period"><time datetime="2024-03">2024.03</time> – <time datetime="2024-05">2024.05</time></p>
-          <div class="experience-details">
-            <h3>美职篮巅峰对决</h3>
-            <p>技术美术实习</p>
-          </div>
-        </article>
-        <article class="experience-entry">
-          <div class="experience-cover">
-            <img src="{{ '/assets/images/portfolio/honor-of-kings-world.jpg' | relative_url }}" alt="王者荣耀世界项目封面" width="600" height="900" loading="lazy">
-          </div>
-          <p class="experience-period"><time datetime="2024-06">2024.06</time> – <time datetime="2024-09">2024.09</time></p>
-          <div class="experience-details">
-            <h3>王者荣耀世界</h3>
-            <p>技术美术实习</p>
-          </div>
-        </article>
-        <article class="experience-entry">
-          <div class="experience-cover">
-            <img src="{{ '/assets/images/portfolio/lord-of-mysteries.jpg' | relative_url }}" alt="诡秘之主项目封面" width="600" height="900" loading="lazy">
-          </div>
-          <p class="experience-period"><time datetime="2025-04">2025.04</time> – 至今</p>
-          <div class="experience-details">
-            <h3>诡秘之主</h3>
-            <p>技术美术</p>
-          </div>
-        </article>
-      </div>
-    </section>
+<header class="intro-header portfolio-header" style="background-image: url('{{ page.header-img | relative_url }}')">
+  <div class="container">
+    <div class="site-heading">
+      <h1>{{ page.title | escape }}</h1>
+      <div class="subheading">{{ page.description | escape }}</div>
+    </div>
   </div>
-</div>
+</header>
+
+<section class="container portfolio-page" aria-labelledby="experience-title">
+  <div class="experience-heading">
+    <p class="experience-eyebrow">EXPERIENCE</p>
+    <h2 id="experience-title">职业经历</h2>
+  </div>
+  <div class="experience-list">
+    <article class="experience-entry">
+      <p class="experience-period"><time datetime="2025-04">2025.04</time> – 至今</p>
+      <div class="experience-details">
+        <h3>快手 <span>· 弹指宇宙</span></h3>
+        <p class="experience-role">技术美术</p>
+        <p class="experience-project"><span>项目</span>诡秘之主</p>
+      </div>
+      <div class="experience-cover">
+        <img src="{{ '/assets/images/portfolio/lord-of-mysteries.jpg' | relative_url }}" alt="诡秘之主项目封面" width="600" height="900" loading="lazy">
+      </div>
+    </article>
+    <article class="experience-entry">
+      <p class="experience-period"><time datetime="2024-06">2024.06</time> – <time datetime="2024-09">2024.09</time></p>
+      <div class="experience-details">
+        <h3>腾讯 <span>· 天美 L1 工作室</span></h3>
+        <p class="experience-role">技术美术实习</p>
+        <p class="experience-project"><span>项目</span>王者荣耀世界</p>
+      </div>
+      <div class="experience-cover">
+        <img src="{{ '/assets/images/portfolio/honor-of-kings-world.jpg' | relative_url }}" alt="王者荣耀世界项目封面" width="600" height="900" loading="lazy">
+      </div>
+    </article>
+    <article class="experience-entry">
+      <p class="experience-period"><time datetime="2024-03">2024.03</time> – <time datetime="2024-05">2024.05</time></p>
+      <div class="experience-details">
+        <h3>Gala Sports</h3>
+        <p class="experience-role">技术美术实习</p>
+        <p class="experience-project"><span>项目</span>美职篮巅峰对决</p>
+      </div>
+      <div class="experience-cover">
+        <img src="{{ '/assets/images/portfolio/nba-showdown.jpg' | relative_url }}" alt="美职篮巅峰对决项目封面" width="647" height="976" loading="lazy">
+        <img class="experience-logo" src="{{ '/assets/images/portfolio/nba-showdown-logo.png' | relative_url }}" alt="" width="316" height="88" loading="lazy">
+      </div>
+    </article>
+  </div>
+</section>

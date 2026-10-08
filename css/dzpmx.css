@@ -25,20 +25,43 @@
 .skip-link:focus { transform: translateY(0); color: #fff; }
 a:focus-visible, button:focus-visible { outline: 2px solid #0085a1; outline-offset: 4px; }
 
-/* Portfolio experience entries use the source presentation's project covers. */
-.portfolio-page { padding-top: 12px; padding-bottom: 60px; }
-.portfolio-page .experience-heading { margin: 0 0 32px; font-size: 28px; }
-.portfolio-page .experience-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
-.portfolio-page .experience-cover { position: relative; aspect-ratio: 2 / 3; }
+/* Portfolio: company, role and project take priority over the cover art. */
+.portfolio-header { margin-bottom: 0; }
+.portfolio-header .container, .portfolio-page { width: 100%; max-width: 1040px; padding-left: 32px; padding-right: 32px; }
+.portfolio-header .site-heading { padding: 108px 0 52px; text-align: left; }
+.portfolio-header .site-heading h1 { margin: 0; font-size: 56px; letter-spacing: -1px; line-height: 1.15; }
+.portfolio-header .site-heading .subheading { margin-top: 14px; font-size: 16px; line-height: 1.6; }
+.portfolio-page { padding-top: 48px; padding-bottom: 64px; }
+.portfolio-page .experience-heading { margin-bottom: 28px; }
+.portfolio-page .experience-eyebrow { margin: 0 0 10px; color: #0085a1; font-size: 11px; font-weight: 600; letter-spacing: 2px; line-height: 1.5; }
+.portfolio-page .experience-heading h2 { margin: 0; color: #26343b; font-size: 28px; line-height: 1.4; }
+.portfolio-page .experience-entry { display: grid; grid-template-columns: 164px minmax(0, 1fr) 112px; align-items: start; gap: 32px; padding: 32px 0; border-top: 1px solid #e6eaec; }
+.portfolio-page .experience-period { margin: 4px 0 0; color: #69767d; font-size: 13px; line-height: 1.8; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.portfolio-page .experience-period::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 10px; border-radius: 50%; background: #aebbc1; vertical-align: 2px; }
+.portfolio-page .experience-entry:first-child .experience-period::before { background: #0085a1; }
+.portfolio-page .experience-details { min-width: 0; }
+.portfolio-page .experience-details h3 { margin: 0; color: #26343b; font-size: 25px; line-height: 1.5; }
+.portfolio-page .experience-details h3 span { display: inline-block; font-weight: 500; }
+.portfolio-page .experience-role { margin: 7px 0 0; color: #69767d; font-size: 16px; line-height: 1.6; }
+.portfolio-page .experience-project { margin: 23px 0 0; color: #3e4f58; font-size: 17px; font-weight: 500; line-height: 1.6; }
+.portfolio-page .experience-project span { display: block; margin-bottom: 3px; color: #69767d; font-size: 12px; font-weight: 400; }
+.portfolio-page .experience-cover { position: relative; aspect-ratio: 2 / 3; overflow: hidden; border-radius: 6px; background: #f3f5f6; }
 .portfolio-page .experience-cover > img:first-child { display: block; width: 100%; height: 100%; object-fit: contain; }
-/* The separate logo keeps the placement used on the first slide. */
+/* The NBA cover and its separate title artwork form one source image. */
 .portfolio-page .experience-cover .experience-logo { position: absolute; left: 13.12%; top: 77.61%; width: 73.77%; height: auto; }
-.portfolio-page .experience-period { margin: 22px 0 0; color: #777; font-size: 15px; line-height: 1.6; }
-.portfolio-page .experience-details { margin-top: 14px; padding-top: 18px; border-top: 1px solid #e5e5e5; }
-.portfolio-page .experience-details h3 { margin: 0 0 10px; font-size: 22px; line-height: 1.4; }
-.portfolio-page .experience-details p { margin: 0; color: #777; font-size: 16px; }
 @media (max-width: 767px) {
-  .portfolio-page .experience-list { grid-template-columns: 1fr; gap: 40px; }
-  .portfolio-page .experience-entry { width: 100%; max-width: 360px; margin: 0 auto; }
-  .portfolio-page .experience-heading { font-size: 24px; }
+  .portfolio-header .container, .portfolio-page { padding-left: 24px; padding-right: 24px; }
+  .portfolio-header .site-heading { padding: 96px 0 40px; }
+  .portfolio-header .site-heading h1 { font-size: 42px; }
+  .portfolio-page { padding-top: 32px; padding-bottom: 40px; }
+  .portfolio-page .experience-heading { margin-bottom: 24px; }
+  .portfolio-page .experience-heading h2 { font-size: 25px; }
+  .portfolio-page .experience-entry { grid-template-columns: minmax(0, 1fr) 84px; column-gap: 20px; row-gap: 12px; padding: 28px 0; }
+  .portfolio-page .experience-period { grid-column: 1; grid-row: 1; margin: 0; font-size: 12px; white-space: normal; }
+  .portfolio-page .experience-period::before { margin-right: 7px; }
+  .portfolio-page .experience-details { grid-column: 1; grid-row: 2; }
+  .portfolio-page .experience-details h3 { font-size: 21px; }
+  .portfolio-page .experience-role { font-size: 14px; }
+  .portfolio-page .experience-project { margin-top: 16px; font-size: 16px; }
+  .portfolio-page .experience-cover { grid-column: 2; grid-row: 1 / span 2; }
 }
