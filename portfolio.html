@@ -2,77 +2,57 @@
 title: Portfolio
 description: "Technical Artist"
 layout: default
+header-img: "assets/images/blog-cover.jpg"
 permalink: /portfolio/
 ---
 
-<div class="portfolio-page">
-  <header class="intro-header portfolio-header">
-    <div class="container portfolio-wrap">
-      <div class="portfolio-hero">
-        <h1>{{ page.title | escape }}</h1>
-        <div class="portfolio-identity">
-          <p class="portfolio-name">{{ site.author | escape }}</p>
-          <p>{{ page.description | escape }}</p>
-        </div>
-      </div>
-    </div>
-  </header>
+{% include intro-header.html type='page' short=true %}
 
-  <section class="portfolio-wrap" aria-labelledby="experience-title">
-    <div class="experience-heading">
+<div class="container">
+  <div class="row">
+    <section class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 portfolio-experience" aria-labelledby="experience-title">
       <h2 id="experience-title">职业经历</h2>
-      <span lang="en">EXPERIENCE</span>
-    </div>
 
-    <article class="experience-entry experience-featured">
-      <div class="experience-art">
-        <img src="{{ '/assets/images/portfolio/lord-of-mysteries-wide.jpg' | relative_url }}" alt="诡秘之主官方人物主视觉" width="2560" height="1440" fetchpriority="high">
-      </div>
-      <div class="experience-caption">
-        <div class="experience-project">
-          <p class="experience-company">快手 · 弹指宇宙</p>
-          <h3>诡秘之主</h3>
-        </div>
-        <div class="experience-meta">
-          <p class="experience-role">技术美术</p>
-          <p class="experience-period"><time datetime="2025-04">2025.04</time> – 至今</p>
-        </div>
-      </div>
-    </article>
+      <div class="experience-list">
+        <article class="experience-entry">
+          <div class="experience-art">
+            <img src="{{ '/assets/images/portfolio/lord-of-mysteries-poster.png' | relative_url }}" alt="诡秘之主角色海报" width="1024" height="1536" fetchpriority="high">
+          </div>
+          <div class="experience-details">
+            <p class="experience-company">快手 · 弹指宇宙</p>
+            <h3>诡秘之主</h3>
+            <p class="experience-role">技术美术</p>
+            <p class="experience-period"><time datetime="2025-04">2025.04</time> – 至今</p>
+          </div>
+        </article>
 
-    <div class="experience-earlier">
-      <article class="experience-entry">
-        <div class="experience-art">
-          <img src="{{ '/assets/images/portfolio/honor-of-kings-world-wide.jpg' | relative_url }}" alt="王者荣耀世界官方角色宣传图" width="3769" height="2160" loading="lazy">
-        </div>
-        <div class="experience-caption">
-          <div class="experience-project">
+        <article class="experience-entry">
+          <div class="experience-art">
+            <img src="{{ '/assets/images/portfolio/honor-of-kings-world-poster.png' | relative_url }}" alt="王者荣耀世界角色海报" width="1024" height="1536" loading="lazy">
+          </div>
+          <div class="experience-details">
             <p class="experience-company">腾讯 · 天美 L1 工作室</p>
             <h3>王者荣耀世界</h3>
-          </div>
-          <div class="experience-meta">
             <p class="experience-role">技术美术实习</p>
             <p class="experience-period"><time datetime="2024-06">2024.06</time> – <time datetime="2024-09">2024.09</time></p>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="experience-entry">
-        <div class="experience-art">
-          <img src="{{ '/assets/images/portfolio/nba-showdown-wide.png' | relative_url }}" alt="美职篮巅峰对决官方横向宣传图" width="1920" height="540" loading="lazy">
-        </div>
-        <div class="experience-caption">
-          <div class="experience-project">
+        <article class="experience-entry">
+          <div class="experience-art">
+            <img src="{{ '/assets/images/portfolio/nba-showdown-poster.png' | relative_url }}" alt="美职篮巅峰对决球星海报" width="1024" height="1536" loading="lazy">
+          </div>
+          <div class="experience-details">
             <p class="experience-company">Gala Sports</p>
             <h3>美职篮巅峰对决</h3>
-          </div>
-          <div class="experience-meta">
             <p class="experience-role">技术美术实习</p>
             <p class="experience-period"><time datetime="2024-03">2024.03</time> – <time datetime="2024-05">2024.05</time></p>
           </div>
-        </div>
-      </article>
-    </div>
-    <p class="portfolio-credits">项目配图来自各游戏官网：<a href="https://lom.sparknexa.com/home">诡秘之主</a>、<a href="https://world.qq.com/web202603/index.html">王者荣耀世界</a>、<a href="https://nba.galasports.com/">美职篮巅峰对决</a>。</p>
-  </section>
+        </article>
+
+      </div>
+
+      <p class="portfolio-credits">游戏官网：<a href="https://lom.sparknexa.com/home">诡秘之主</a>、<a href="https://world.qq.com/web202603/index.html">王者荣耀世界</a>、<a href="https://nba.galasports.com/">美职篮巅峰对决</a>。</p>
+    </section>
+  </div>
 </div>

@@ -25,50 +25,26 @@
 .skip-link:focus { transform: translateY(0); color: #fff; }
 a:focus-visible, button:focus-visible { outline: 2px solid #0085a1; outline-offset: 4px; }
 
-/* Portfolio: image-led experience page, designed separately from the article layout. */
-.portfolio-page { padding-bottom: 64px; color: #202020; font-family: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
-.portfolio-page .portfolio-wrap, .portfolio-nav > .container-fluid { width: calc(100% - 96px); max-width: 1248px; margin: 0 auto; padding: 0; }
-.portfolio-nav .navbar-brand { margin-left: 0; padding-left: 0; }
-.portfolio-nav .nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; }
-.portfolio-page .portfolio-header { margin-bottom: 0; background: none; }
-.portfolio-page .portfolio-hero { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; padding: 136px 0 48px; border-bottom: 1px solid #d7d7d7; }
-.portfolio-page .portfolio-hero h1 { margin: 0; font-family: inherit; font-size: clamp(64px, 8vw, 112px); font-weight: 600; letter-spacing: -.06em; line-height: 1.1; }
-.portfolio-page .portfolio-identity { min-width: 170px; padding-bottom: 4px; }
-.portfolio-page .portfolio-identity p { margin: 0; color: #6e6e6e; font-size: 16px; line-height: 1.5; }
-.portfolio-page .portfolio-identity .portfolio-name { margin-bottom: 2px; color: #202020; font-size: 14px; font-weight: 500; }
-.portfolio-page .experience-heading { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
-.portfolio-page .experience-heading h2 { margin: 0; font-family: inherit; font-size: 16px; font-weight: 600; line-height: 1.5; }
-.portfolio-page .experience-heading > span { color: #6e6e6e; font-size: 11px; }
-.portfolio-page .experience-art { aspect-ratio: 12 / 5; overflow: hidden; background: #ededed; }
-.portfolio-page .experience-featured .experience-art { aspect-ratio: 13 / 5; }
-.portfolio-page .experience-art img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.portfolio-page .experience-caption { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding-top: 20px; }
-.portfolio-page .experience-project { min-width: 0; }
-.portfolio-page .experience-company { margin: 0 0 5px; color: #6e6e6e; font-size: 13px; line-height: 1.5; }
-.portfolio-page .experience-project h3 { margin: 0; font-family: inherit; font-size: 24px; font-weight: 600; line-height: 1.45; }
-.portfolio-page .experience-featured h3 { font-size: 30px; }
-.portfolio-page .experience-meta { display: flex; flex: 0 0 auto; flex-direction: column; align-items: flex-end; gap: 4px; padding-top: 1px; }
-.portfolio-page .experience-role { margin: 0; font-size: 14px; line-height: 1.5; }
-.portfolio-page .experience-period { margin: 0; color: #6e6e6e; font-size: 13px; line-height: 1.5; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.portfolio-page .experience-earlier { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; margin-top: 60px; }
-.portfolio-page .portfolio-credits { margin: 36px 0 0; color: #767676; font-size: 11px; line-height: 1.8; }
-.portfolio-page .portfolio-credits a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
-.portfolio-page .portfolio-credits a:hover { color: #202020; }
+/* Portfolio: reuse the Hux page header, type and content grid. */
+.portfolio-experience { padding-top: 12px; padding-bottom: 20px; }
+.portfolio-experience > h2 { margin: 16px 0 24px; font-size: 20px; line-height: 1.5; }
+.portfolio-experience .experience-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
+.portfolio-experience .experience-art { aspect-ratio: 2 / 3; overflow: hidden; background: #eee; }
+.portfolio-experience .experience-art img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.portfolio-experience .experience-details { padding-top: 20px; }
+.portfolio-experience .experience-company { margin: 0 0 8px; color: #808080; font-size: 13px; }
+.portfolio-experience .experience-details h3 { margin: 0 0 14px; font-size: 24px; line-height: 1.3; }
+.portfolio-experience .experience-role { margin: 0 0 4px; font-size: 14px; }
+.portfolio-experience .experience-period { margin: 0; color: #808080; font-family: Georgia, "Times New Roman", serif; font-size: 16px; font-style: italic; font-variant-numeric: tabular-nums; }
+.portfolio-experience .portfolio-credits { margin: 32px 0 0; padding-top: 20px; border-top: 1px solid #eee; color: #808080; font-size: 12px; line-height: 1.8; }
+.portfolio-experience .portfolio-credits a { color: #0085a1; }
+.portfolio-experience .portfolio-credits a:hover { text-decoration: underline; }
 @media (max-width: 991px) {
-  .portfolio-page .experience-earlier .experience-caption { flex-direction: column; gap: 10px; }
-  .portfolio-page .experience-earlier .experience-meta { width: 100%; flex-direction: row; align-items: center; justify-content: space-between; }
+  .portfolio-experience .experience-list { gap: 24px; }
+  .portfolio-experience .experience-details h3 { font-size: 20px; }
 }
 @media (max-width: 767px) {
-  .portfolio-page { padding-bottom: 40px; }
-  .portfolio-page .portfolio-wrap, .portfolio-nav > .container-fluid { width: calc(100% - 48px); }
-  .portfolio-nav .navbar-header { margin: 0; }
-  .portfolio-nav .navbar-toggle { margin-right: 0; }
-  .portfolio-page .portfolio-hero { flex-direction: column; align-items: flex-start; gap: 20px; padding: 104px 0 38px; }
-  .portfolio-page .portfolio-hero h1 { font-size: clamp(52px, 17.4vw, 68px); }
-  .portfolio-page .portfolio-identity { padding: 0; }
-  .portfolio-page .experience-featured .experience-art { aspect-ratio: 8 / 5; }
-  .portfolio-page .experience-caption { display: block; }
-  .portfolio-page .experience-project h3, .portfolio-page .experience-featured h3 { font-size: 24px; }
-  .portfolio-page .experience-meta { flex-direction: row; align-items: center; justify-content: space-between; gap: 12px; margin-top: 8px; }
-  .portfolio-page .experience-earlier { grid-template-columns: 1fr; gap: 42px; margin-top: 42px; }
+  .portfolio-experience { padding-top: 16px; }
+  .portfolio-experience .experience-list { grid-template-columns: 1fr; gap: 36px; max-width: 360px; margin: 0 auto; }
+  .portfolio-experience .experience-details h3 { font-size: 24px; margin-bottom: 10px; }
 }
