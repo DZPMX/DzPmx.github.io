@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Uncharted4中布料与头发的美术和渲染流程"
+title: "【笔记】Uncharted4中布料与头发的美术和渲染流程"
 date: 2026-10-07 00:00:00 +0800
 header-img: "assets/images/uncharted-4-cloth-and-hair/siggraph-cover.jpg"
 header-mask: 0.35
@@ -162,7 +162,10 @@ typora-copy-images-to: ../assets/images/uncharted-4-cloth-and-hair
 </figure>
 此外，还烘焙了变化图，用来打散高光和逆光散射，让发丝感更突出。
 
-<img src="/assets/images/uncharted-4-cloth-and-hair/image-20261008023014465.png" alt="image-20261008023014465" width="360" style="width: 360px; max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+<figure>
+  <img src="/assets/images/uncharted-4-cloth-and-hair/image-20261008023014465.png" alt="image-20261008023014465" width="360" style="width: 360px; max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+  <figcaption>ID变化图</figcaption>
+</figure>
 
 ### 头发阴影
 
@@ -198,13 +201,17 @@ Bake Shadow 让头发看起来更有深度感和体积感。
 
 <figure>
   <img src="/assets/images/uncharted-4-cloth-and-hair/figure-22.png" alt="" loading="lazy" width="360" style="width: 360px; max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+  <figcaption>阴影太硬</figcaption>
 </figure>
+
 
 针对这个问题，需要减少游戏中头发的硬阴影。直接对 Shadow 做 Blur 非常耗费性能。此前，开发者调高了头发的裁剪阈值，让发丝更粗；而在头发的 Shadow Pass 中，可以重置裁剪阈值，让这一阶段的发丝更细，从而使阴影更加柔和。
 
 <figure>
   <img src="/assets/images/uncharted-4-cloth-and-hair/figure-23.png" alt="" loading="lazy" width="360" style="width: 360px; max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+  <figcaption>调整阈值后的柔软阴影</figcaption>
 </figure>
+
 
 为使头发的渲染更真实，开发者还对 Shading 做了以下调整：
 

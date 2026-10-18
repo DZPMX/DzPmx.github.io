@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "START"
-date: 2026-10-05 22:00:00 +0800
+title: "【闲谈】START"
+date: 2026-02-14 14:03:00 +0800
 pinned: true
 header-img: "assets/images/blog-cover.jpg"
 no-catalog: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "3D数学基础：射线求交"
+title: "【数学】3D数学基础：射线求交"
 date: 2026-01-11 16:52:31 +0800
 author: "DZPMX"
 published: true
@@ -82,7 +82,9 @@ $$
 
 <figure>
   <img src="/assets/images/ray-intersection/figure-01.png" alt="" loading="lazy" width="360" style="width: 360px; max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>三角形示例</figcaption>
 </figure>
+
 
 沿三角形的三条边，按顺时针或逆时针方向构造三个向量，则点 P 必然在三个向量方向的同一侧。以顺时针为例，可以分别计算 $(P_{2}-P_{1})\times( P-P_{1})$ 、$(P_{1}-P_{0})\times( P-P_{0})$ 、$(P_{0}-P_{2})\times( P-P_{2})$ 这三个叉乘结果，并判断其符号是否相同；相同则表示交点在三角形内。
 
