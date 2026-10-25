@@ -6,7 +6,6 @@ pinned: true
 header-img: "assets/images/blog-cover.jpg"
 no-catalog: true
 tags:
-  - Technical Artist
   - 闲谈
 typora-root-url: ../
 typora-copy-images-to: ../assets/images/getting-started

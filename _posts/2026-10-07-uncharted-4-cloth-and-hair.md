@@ -8,7 +8,7 @@ header-img-credit: "Yibing Jiang / Naughty Dog, SIGGRAPH 2016"
 header-img-credit-href: "https://advances.realtimerendering.com/s2016/"
 no-catalog: false
 tags:
-  - Graphics Sutdy
+  - Technical Artist
 typora-root-url: ../
 typora-copy-images-to: ../assets/images/uncharted-4-cloth-and-hair
 ---

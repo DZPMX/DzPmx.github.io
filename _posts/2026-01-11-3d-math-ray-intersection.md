@@ -8,7 +8,7 @@ math: true
 header-img: "assets/images/blog-cover.jpg"
 no-catalog: false
 tags:
-  - 数学推导
+  - Math
 typora-root-url: ../
 typora-copy-images-to: ../assets/images/ray-intersectio
 ---
